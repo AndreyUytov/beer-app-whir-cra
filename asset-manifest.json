@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/beer-app-whir-cra/static/css/main.c87c1e32.chunk.css",
+    "main.js": "/beer-app-whir-cra/static/js/main.9f4cd356.chunk.js",
+    "main.js.map": "/beer-app-whir-cra/static/js/main.9f4cd356.chunk.js.map",
+    "runtime-main.js": "/beer-app-whir-cra/static/js/runtime-main.68a1fc96.js",
+    "runtime-main.js.map": "/beer-app-whir-cra/static/js/runtime-main.68a1fc96.js.map",
+    "static/js/2.ee872f36.chunk.js": "/beer-app-whir-cra/static/js/2.ee872f36.chunk.js",
+    "static/js/2.ee872f36.chunk.js.map": "/beer-app-whir-cra/static/js/2.ee872f36.chunk.js.map",
+    "static/js/3.b1c7083a.chunk.js": "/beer-app-whir-cra/static/js/3.b1c7083a.chunk.js",
+    "static/js/3.b1c7083a.chunk.js.map": "/beer-app-whir-cra/static/js/3.b1c7083a.chunk.js.map",
+    "index.html": "/beer-app-whir-cra/index.html",
+    "static/css/main.c87c1e32.chunk.css.map": "/beer-app-whir-cra/static/css/main.c87c1e32.chunk.css.map",
+    "static/js/2.ee872f36.chunk.js.LICENSE.txt": "/beer-app-whir-cra/static/js/2.ee872f36.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.68a1fc96.js",
+    "static/js/2.ee872f36.chunk.js",
+    "static/css/main.c87c1e32.chunk.css",
+    "static/js/main.9f4cd356.chunk.js"
+  ]
+}
