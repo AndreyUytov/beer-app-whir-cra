@@ -15,51 +15,51 @@ export default function Header() {
   return (
     <>
     <header className="page-header">
-  <section className="page-header__fix-section">
-    <div className="fix-section">
-      <a href="index.html" className="page-header__logo">
-        <LogoSvg  width="143" height="29" />
-      </a>
-
-      <Button classes="page-header__catalog-btn">
-        <BurgerSvg width="24" height="24" /> 
-        Каталог косметики
-      </Button>
-
-      <Button classes="page-header__search-btn">
-        <SearchSvg width="24" height="24" />
-      </Button>
-    </div>
-  </section>
-
-  <section className="page-header__user-section">
-    <nav className="page-header__navigation">
-      <ul className="page-header__navigation-list list">
-        <li className="navigation__item">
-          <a href="#" className="navigation__link">
-            <FavoriteSvg width="24" height="24" />    
+      <section className="page-header__fix-section">
+        <div className="fix-section">
+          <a href="index.html" className="page-header__logo">
+            <LogoSvg  width="143" height="29" />
           </a>
-        </li>
 
-        <li className="navigation__item">
-          <a href="#" className="navigation__link">
-            <UserSvg width="24" height="24" />
-          </a>
-        </li>
+          <Button classes="page-header__catalog-btn">
+            <BurgerSvg width="24" height="24" /> 
+            Каталог косметики
+          </Button>
 
-        <li className="navigation__item">
-          <a href="#" className="navigation__link">
-            <BasketSvg width="24" height="24" />
-          </a>
-        </li>
-      </ul>
-    </nav>
+          <Button classes="page-header__search-btn">
+            <SearchSvg width="24" height="24" />
+          </Button>
+        </div>
+      </section>
 
-    <OutlineButton
-      classes="user-section__assortmen-btn popup-consultation-btn">
-      Подбор косметики
-    </OutlineButton>
-  </section>
+      <section className="page-header__user-section">
+        <nav className="page-header__navigation">
+          <ul className="page-header__navigation-list list">
+            <li className="navigation__item">
+              <a href="#" className="navigation__link">
+                <FavoriteSvg width="24" height="24" />    
+              </a>
+            </li>
+
+            <li className="navigation__item">
+              <a href="#" className="navigation__link">
+                <UserSvg width="24" height="24" />
+              </a>
+            </li>
+
+            <li className="navigation__item">
+              <a href="#" className="navigation__link">
+                <BasketSvg width="24" height="24" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <OutlineButton
+          classes="user-section__assortmen-btn popup-consultation-btn">
+          Подбор косметики
+        </OutlineButton>
+      </section>
 </header>
 
     </>
