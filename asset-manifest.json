@@ -1,22 +1,30 @@
 {
   "files": {
-    "main.css": "/beer-app-whir-cra/static/css/main.c87c1e32.chunk.css",
-    "main.js": "/beer-app-whir-cra/static/js/main.9f4cd356.chunk.js",
-    "main.js.map": "/beer-app-whir-cra/static/js/main.9f4cd356.chunk.js.map",
-    "runtime-main.js": "/beer-app-whir-cra/static/js/runtime-main.68a1fc96.js",
-    "runtime-main.js.map": "/beer-app-whir-cra/static/js/runtime-main.68a1fc96.js.map",
-    "static/js/2.ee872f36.chunk.js": "/beer-app-whir-cra/static/js/2.ee872f36.chunk.js",
-    "static/js/2.ee872f36.chunk.js.map": "/beer-app-whir-cra/static/js/2.ee872f36.chunk.js.map",
-    "static/js/3.b1c7083a.chunk.js": "/beer-app-whir-cra/static/js/3.b1c7083a.chunk.js",
-    "static/js/3.b1c7083a.chunk.js.map": "/beer-app-whir-cra/static/js/3.b1c7083a.chunk.js.map",
+    "main.css": "/beer-app-whir-cra/static/css/main.c3e20263.chunk.css",
+    "main.js": "/beer-app-whir-cra/static/js/main.cbde0628.chunk.js",
+    "main.js.map": "/beer-app-whir-cra/static/js/main.cbde0628.chunk.js.map",
+    "runtime-main.js": "/beer-app-whir-cra/static/js/runtime-main.6ee51253.js",
+    "runtime-main.js.map": "/beer-app-whir-cra/static/js/runtime-main.6ee51253.js.map",
+    "static/js/2.18cc6ca8.chunk.js": "/beer-app-whir-cra/static/js/2.18cc6ca8.chunk.js",
+    "static/js/2.18cc6ca8.chunk.js.map": "/beer-app-whir-cra/static/js/2.18cc6ca8.chunk.js.map",
+    "static/js/3.cb009e16.chunk.js": "/beer-app-whir-cra/static/js/3.cb009e16.chunk.js",
+    "static/js/3.cb009e16.chunk.js.map": "/beer-app-whir-cra/static/js/3.cb009e16.chunk.js.map",
     "index.html": "/beer-app-whir-cra/index.html",
-    "static/css/main.c87c1e32.chunk.css.map": "/beer-app-whir-cra/static/css/main.c87c1e32.chunk.css.map",
-    "static/js/2.ee872f36.chunk.js.LICENSE.txt": "/beer-app-whir-cra/static/js/2.ee872f36.chunk.js.LICENSE.txt"
+    "static/css/main.c3e20263.chunk.css.map": "/beer-app-whir-cra/static/css/main.c3e20263.chunk.css.map",
+    "static/js/2.18cc6ca8.chunk.js.LICENSE.txt": "/beer-app-whir-cra/static/js/2.18cc6ca8.chunk.js.LICENSE.txt",
+    "static/media/basket.64c5c1ee.svg": "/beer-app-whir-cra/static/media/basket.64c5c1ee.svg",
+    "static/media/burger.7a997b0e.svg": "/beer-app-whir-cra/static/media/burger.7a997b0e.svg",
+    "static/media/close.5e5a0556.svg": "/beer-app-whir-cra/static/media/close.5e5a0556.svg",
+    "static/media/favorite.0efdc1e4.svg": "/beer-app-whir-cra/static/media/favorite.0efdc1e4.svg",
+    "static/media/index.scss": "/beer-app-whir-cra/static/media/latosemibold.f5401c69.ttf",
+    "static/media/logo.1444ac95.svg": "/beer-app-whir-cra/static/media/logo.1444ac95.svg",
+    "static/media/search.8d33e2c9.svg": "/beer-app-whir-cra/static/media/search.8d33e2c9.svg",
+    "static/media/user.c122c6ca.svg": "/beer-app-whir-cra/static/media/user.c122c6ca.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.68a1fc96.js",
-    "static/js/2.ee872f36.chunk.js",
-    "static/css/main.c87c1e32.chunk.css",
-    "static/js/main.9f4cd356.chunk.js"
+    "static/js/runtime-main.6ee51253.js",
+    "static/js/2.18cc6ca8.chunk.js",
+    "static/css/main.c3e20263.chunk.css",
+    "static/js/main.cbde0628.chunk.js"
   ]
 }
