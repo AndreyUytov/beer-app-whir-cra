@@ -22,8 +22,8 @@ export default function Header() {
               <LogoSvg width="143" height="29" />
             </a>
 
-            {openSearch ? (
-              <SearchBLock />
+            {openSearch === true ? (
+              <SearchBLock onCloseButtonClick={() => setOpenSearch(false)}/>
             ) : (
               <>
                 <Button classes="page-header__catalog-btn">

@@ -5,7 +5,7 @@ export default function Button(props) {
   }
   return (
   <>
-    <button className={classes}>
+    <button className={classes} onClick={(evt => props.onClick(evt))}>
       {props.children}
     </button>
   </>
