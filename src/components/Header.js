@@ -13,6 +13,7 @@ import { useState } from 'react'
 
 export default function Header() {
   const [openSearch, setOpenSearch] = useState(false)
+
   return (
     <>
       <header className="page-header">
@@ -23,7 +24,7 @@ export default function Header() {
             </a>
 
             {openSearch === true ? (
-              <SearchBLock onCloseButtonClick={() => setOpenSearch(false)}/>
+              <SearchBLock onCloseButtonClick={() => setOpenSearch(false)} />
             ) : (
               <>
                 <Button classes="page-header__catalog-btn">
@@ -46,19 +47,19 @@ export default function Header() {
           <nav className="page-header__navigation">
             <ul className="page-header__navigation-list list">
               <li className="navigation__item">
-                <a href="#" className="navigation__link">
+                <a href="favorite.html" className="navigation__link">
                   <FavoriteSvg width="24" height="24" />
                 </a>
               </li>
 
               <li className="navigation__item">
-                <a href="#" className="navigation__link">
+                <a href="user.html" className="navigation__link">
                   <UserSvg width="24" height="24" />
                 </a>
               </li>
 
               <li className="navigation__item">
-                <a href="#" className="navigation__link">
+                <a href="basket.html" className="navigation__link">
                   <BasketSvg width="24" height="24" />
                 </a>
               </li>
