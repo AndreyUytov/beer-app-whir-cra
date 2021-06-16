@@ -13,7 +13,7 @@
 
   display: grid;
   grid-template-columns: [left-gutter] 1fr [left-section]6fr [right-section]4fr [right-gutter]1fr;
-  grid-template-rows: auto [banner]1fr;
+  grid-template-rows: auto;
   grid-column-gap: 20px;
 
   background-color: transparent;
