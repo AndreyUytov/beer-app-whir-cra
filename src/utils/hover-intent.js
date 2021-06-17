@@ -72,7 +72,7 @@ export default class HoverIntent {
   trackSpeed(event) {
     let speed
 
-    if (!this.lastTime || this.lastTime == this.prevTime) {
+    if (!this.lastTime || this.lastTime === this.prevTime) {
       // курсор не двигался
       speed = 0
     } else {
