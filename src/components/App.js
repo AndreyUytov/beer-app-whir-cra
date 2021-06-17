@@ -8,6 +8,7 @@ import About from './About'
 import Popular from './Popular'
 import Choice from './Choice'
 import Articles from './Articles'
+import Feedback from './Feedback'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Popular />
         <Choice />
         <Articles />
+        <Feedback />
       </MainIndex>
     </div>
   )
