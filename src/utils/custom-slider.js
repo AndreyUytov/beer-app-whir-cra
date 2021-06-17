@@ -108,6 +108,12 @@ export default class CustomSlider {
     return this._currentSlide
   }
 
+  useCallBack() {
+    if (this.changeCurrentXCallBack) {
+      this.changeCurrentXCallBack(this)
+    }
+  }
+
   updateCurrentSlide() {
     this._currentSlide = Math.floor(Math.abs(this.currentX / this.step))
   }
@@ -168,34 +174,6 @@ export default class CustomSlider {
     }
   }
 
-  checkBounds(newX) {
-    if (this.isLeftEdge(newX)) {
-      this.animationSlider(this.currentX, 0).then(() => {
-        this.currentX = 0
-        this.updateButtonsDisabled()
-        this.updateCounterSlider()
-        this.updateMarkerList()
-        if (this.changeCurrentXCallBack) {
-          this.changeCurrentXCallBack(this)
-        }
-      })
-      return true
-    } else if (this.isRightEdge(newX)) {
-      this.animationSlider(this.currentX, this.maxX).then(() => {
-        this.currentX = this.maxX
-        this.updateButtonsDisabled()
-        this.updateCounterSlider()
-        this.updateMarkerList()
-        if (this.changeCurrentXCallBack) {
-          this.changeCurrentXCallBack(this)
-        }
-      })
-      return true
-    } else {
-      return false
-    }
-  }
-
   animationSlider(initValue, endValue) {
     return animate({
       duration: 500,
@@ -211,19 +189,22 @@ export default class CustomSlider {
   }
 
   updateCurrentX(newX) {
-    if (!this.checkBounds(newX)) {
-      let step = this.step
-      let newPosition = Math.round(newX / step) * step
+    const prevCurrentX = this.currentX
 
-      this.animationSlider(this.currentX, newPosition).then(() => {
-        this.currentX = newPosition
-        this.updateButtonsDisabled()
-        this.updateCounterSlider()
-        this.updateMarkerList()
-        if (this.changeCurrentXCallBack) {
-          this.changeCurrentXCallBack(this)
-        }
-      })
+    if (this.isLeftEdge(newX)) {
+      this.currentX = 0
+    } else if (this.isRightEdge(newX)) {
+      this.currentX = this.maxX
+    } else {
+      let step = this.step
+      this.currentX = Math.round(newX / step) * step
     }
+
+    this.animationSlider(prevCurrentX, this.currentX).then(() => {
+      this.updateButtonsDisabled()
+      this.updateCounterSlider()
+      this.updateMarkerList()
+      this.useCallBack()
+    })
   }
 }
