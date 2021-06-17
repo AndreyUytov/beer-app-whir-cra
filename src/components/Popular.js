@@ -1,8 +1,43 @@
-import card from './../img/pic/card.png'
-import present from './../img/pic/present.png'
 import './popular.scss'
 
+import Card from './Card'
+import { useEffect, useState } from 'react'
+
+function renderList(items) {
+  return (
+    <ul className="popular__list list">
+      
+      {items.map((item) => {
+        return (
+          <Card classes='popular__item' item={item} key={item.id} />
+        )
+      })}
+    </ul>
+  )
+}
+
 export default function Popular(props) {
+
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [beers, setBeers] = useState([]);
+
+  useEffect(() => {
+    const random = Math.round(Math.random() * 10)
+    fetch(`https://api.punkapi.com/v2/beers?page=${random}&per_page=8`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setBeers(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [])
+
   return (
     <section className="popular">
       <h2 className="section-title">Популярные товары</h2>
@@ -10,200 +45,7 @@ export default function Popular(props) {
         Чаще всего у нас покупают эти товары, потому что они лучше всего
         помогают женщинам.
       </p>
-
-      <ul className="popular__list list">
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-
-        <li className="popular__item card">
-          <a href="card.html" className="card__link">
-            <img src={card} className="card__img" alt="card-item" />
-            <div className="card__bottom">
-              <p className="card__info">
-                Piruvic40 solution Medicare Proffessional
-              </p>
-              <p className="card__price">
-                12 250 грн.
-                <span className="card__discount"> -30% </span>
-              </p>
-            </div>
-            <div className="card__present">
-              <h5 className="card__present-title">подарок</h5>
-              <div className="card__present-img">
-                <img src={present} alt="present" />
-              </div>
-            </div>
-            <div className="card__marker">
-              <span className="card__marker-text">хит</span>
-            </div>
-          </a>
-        </li>
-      </ul>
+      {error ? <div>Ошибка: {error.message}</div> : isLoaded === false ? <div>Загрузка...</div> : renderList(beers)}
 
       <button className="button outline-btn">Показать больше</button>
     </section>
