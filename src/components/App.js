@@ -9,6 +9,8 @@ import Popular from './Popular'
 import Choice from './Choice'
 import Articles from './Articles'
 import Feedback from './Feedback'
+import Clients from './Clients'
+import Footer from './Footer'
 
 export default function App() {
   return (
@@ -22,7 +24,9 @@ export default function App() {
         <Choice />
         <Articles />
         <Feedback />
+        <Clients />
       </MainIndex>
+      <Footer />
     </div>
   )
 }
