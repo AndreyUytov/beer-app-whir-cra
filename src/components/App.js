@@ -11,6 +11,7 @@ import Articles from './Articles'
 import Feedback from './Feedback'
 import Clients from './Clients'
 import Footer from './Footer'
+import PopupConsultation from './PopupConsultation'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Clients />
       </MainIndex>
       <Footer />
+      <PopupConsultation />
     </div>
   )
 }
