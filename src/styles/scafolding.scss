@@ -136,15 +136,22 @@ input[type='radio'].visually-hidden {
 
 // card
 
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .card__link {
+  width: 100%;
   position: relative;
   min-width: 185px;
   max-width: 275px;
-  max-height: 100%;
+  height: 100%;
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: [img]5fr [info]3fr;
+  grid-template-rows: [img]minmax(185px, 275px) [info]auto;
   grid-gap: 14px;
 
   background: #ffffff;
@@ -156,6 +163,9 @@ input[type='radio'].visually-hidden {
 
 .card__img {
   grid-row: img;
+  max-height: 275px;
+
+  justify-self: center;
 }
 
 .card__bottom {
@@ -165,6 +175,7 @@ input[type='radio'].visually-hidden {
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .card__info {
