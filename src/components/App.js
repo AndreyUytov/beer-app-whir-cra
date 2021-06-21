@@ -12,23 +12,35 @@ import Feedback from './Feedback'
 import Clients from './Clients'
 import Footer from './Footer'
 import PopupConsultation from './PopupConsultation'
+import {
+  useConsultationPopupContext,
+  ConsultationPopupProvider,
+} from './consultation-context'
 
 export default function App() {
+  const [isVisible, setIsVisible] = useConsultationPopupContext()
   return (
-    <div className="index-page">
-      <Header />
-      <MainIndex>
-        <Banner />
-        <Categories />
-        <About />
-        <Popular />
-        <Choice />
-        <Articles />
-        <Feedback />
-        <Clients />
-      </MainIndex>
-      <Footer />
-      <PopupConsultation />
-    </div>
+    <ConsultationPopupProvider>
+      <div
+        className="index-page"
+        onClick={() => {
+          setIsVisible(false)
+        }}
+      >
+        <Header />
+        <MainIndex>
+          <Banner />
+          <Categories />
+          <About />
+          <Popular />
+          <Choice />
+          <Articles />
+          <Feedback />
+          <Clients />
+        </MainIndex>
+        <Footer />
+        <PopupConsultation isVisible={isVisible} />
+      </div>
+    </ConsultationPopupProvider>
   )
 }

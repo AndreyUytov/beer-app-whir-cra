@@ -1,8 +1,8 @@
 import './popup-consultation.scss'
 
-export default function PopupConsultation(props) {
+export default function PopupConsultation({ isVisible }) {
   return (
-    <section className="popup-consultation" hidden>
+    <section className="popup-consultation" hidden={isVisible}>
       <div className="popup-selection__inner">
         <div className="popup-cosmetolog popup-selection">
           <h2 className="popup-selection__title">Консультация косметолога</h2>
