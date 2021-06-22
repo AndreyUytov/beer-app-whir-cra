@@ -2,12 +2,12 @@ import Button from './Button'
 
 export default function OutlineButton(props) {
   let classes = 'outline-btn '
-  if(props.classes) {
+  if (props.classes) {
     classes += ` ${props.classes}`
   }
   return (
     <>
-      <Button classes={classes} >
+      <Button classes={classes} onClick={props.onClick}>
         {props.children}
       </Button>
     </>

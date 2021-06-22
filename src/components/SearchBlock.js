@@ -116,7 +116,7 @@ export default function SearchBlock(props) {
         <div ref={inputWrapper} className="search-block__input-wrapper">
           <Button
             classes="search-block__close-btn"
-            onClick={() => props.onCloseButtonClick()}
+            onClick={props.onCloseButtonClick}
           >
             <CloseIcon width="24" height="24" />
           </Button>

@@ -3,11 +3,12 @@ export default function Button(props) {
   if (props.classes) {
     classes += ` ${props.classes}`
   }
+
   return (
-  <>
-    <button className={classes} onClick={(evt => props.onClick(evt))}>
-      {props.children}
-    </button>
-  </>
+    <>
+      <button className={classes} onClick={(evt) => props.onClick(evt)}>
+        {props.children}
+      </button>
+    </>
   )
 }

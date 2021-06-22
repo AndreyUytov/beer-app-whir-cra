@@ -3,12 +3,20 @@ import banner1 from './../img/pic/banner1.png'
 import banner2 from './../img/pic/banner2.png'
 import littleImg from './../img/pic/litle-img.png'
 
+import { useConsultationPopupContext } from './consultation-context'
+
 import './Banner.scss'
 
 import HoverIntent from './../utils/hover-intent'
 
 export default function Banner(props) {
   const rootElem = useRef(null)
+
+  const [isVisible, setIsVisible] = useConsultationPopupContext()
+  const showPopupConsultation = (evt) => {
+    setIsVisible(false)
+    evt.stopPropagation()
+  }
 
   useEffect(() => {
     const $bannerLinks = rootElem.current.querySelectorAll('.banner__link')
@@ -43,7 +51,10 @@ export default function Banner(props) {
               Преобретите медицинскую косметику для ухода за собой, не пользуясь
               услугами косметолога.
             </p>
-            <button className="banner__btn button background-btn popup-consultation-btn">
+            <button
+              onClick={showPopupConsultation}
+              className="banner__btn button background-btn popup-consultation-btn"
+            >
               Подобрать косметику под себя
             </button>
           </div>

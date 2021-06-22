@@ -7,13 +7,18 @@ import { ReactComponent as BasketSvg } from './../img/svg/basket.svg'
 import Button from './Button'
 import OutlineButton from './OutlineButton'
 import SearchBLock from './SearchBlock'
+import { useConsultationPopupContext } from './consultation-context'
 
 import './header.scss'
 import { useState } from 'react'
 
 export default function Header() {
   const [openSearch, setOpenSearch] = useState(false)
-
+  const [isVisible, setIsVisible] = useConsultationPopupContext()
+  const showPopupConsultation = (evt) => {
+    setIsVisible(false)
+    evt.stopPropagation()
+  }
   return (
     <>
       <header className="page-header">
@@ -66,7 +71,10 @@ export default function Header() {
             </ul>
           </nav>
 
-          <OutlineButton classes="user-section__assortmen-btn popup-consultation-btn">
+          <OutlineButton
+            classes="user-section__assortmen-btn popup-consultation-btn"
+            onClick={showPopupConsultation}
+          >
             Подбор косметики
           </OutlineButton>
         </section>

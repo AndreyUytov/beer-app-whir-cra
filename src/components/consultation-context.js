@@ -1,4 +1,4 @@
-import { React } from 'react'
+import React from 'react'
 
 const ConsultationPopupContext = React.createContext()
 
@@ -7,16 +7,12 @@ function useConsultationPopupContext() {
   if (!context) {
     throw new Error(`useCount must be used within a ConsultationPopupProvider`)
   }
-  const [isVisible, setIsVisible] = context
 
-  return {
-    isVisible,
-    setIsVisible,
-  }
+  return context
 }
 
 function ConsultationPopupProvider(props) {
-  const [isVisible, setIsVisible] = React.useState(false)
+  const [isVisible, setIsVisible] = React.useState(true)
   const value = React.useMemo(() => [isVisible, setIsVisible], [isVisible])
   return <ConsultationPopupContext.Provider value={value} {...props} />
 }
