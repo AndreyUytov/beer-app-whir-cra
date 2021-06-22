@@ -8,13 +8,15 @@ import Button from './Button'
 import OutlineButton from './OutlineButton'
 import SearchBLock from './SearchBlock'
 import { useConsultationPopupContext } from './consultation-context'
+import PopupMenu from './PopupMenu'
 
 import './header.scss'
 import { useState } from 'react'
 
 export default function Header() {
   const [openSearch, setOpenSearch] = useState(false)
-  const [isVisible, setIsVisible] = useConsultationPopupContext()
+  const [isVisibleMenu, setIsVisibleMenu] = useState(true)
+  const { setIsVisible } = useConsultationPopupContext()
   const showPopupConsultation = (evt) => {
     setIsVisible(false)
     evt.stopPropagation()
@@ -32,7 +34,10 @@ export default function Header() {
               <SearchBLock onCloseButtonClick={() => setOpenSearch(false)} />
             ) : (
               <>
-                <Button classes="page-header__catalog-btn">
+                <Button
+                  classes="page-header__catalog-btn"
+                  onClick={() => setIsVisibleMenu(false)}
+                >
                   <BurgerSvg width="24" height="24" />
                   Каталог косметики
                 </Button>
@@ -79,6 +84,7 @@ export default function Header() {
           </OutlineButton>
         </section>
       </header>
+      <PopupMenu isVisible={isVisibleMenu} setIsVisible={setIsVisibleMenu} />
     </>
   )
 }

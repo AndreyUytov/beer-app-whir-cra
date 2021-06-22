@@ -3,7 +3,7 @@ import './about.scss'
 import { useConsultationPopupContext } from './consultation-context'
 
 export default function About(props) {
-  const [isVisible, setIsVisible] = useConsultationPopupContext()
+  const { setIsVisible } = useConsultationPopupContext()
   const showPopupConsultation = (evt) => {
     setIsVisible(false)
     evt.stopPropagation()

@@ -13,15 +13,10 @@ import PopupConsultation from './PopupConsultation'
 import { useConsultationPopupContext } from './consultation-context'
 
 export default function LandingPage() {
-  const [isVisible, setIsVisible] = useConsultationPopupContext()
+  const { isVisible, setIsVisible } = useConsultationPopupContext()
 
   return (
-    <div
-      className="index-page"
-      onClick={() => {
-        setIsVisible(true)
-      }}
-    >
+    <div className="index-page">
       <Header />
       <MainIndex>
         <Banner />
@@ -34,7 +29,7 @@ export default function LandingPage() {
         <Clients />
       </MainIndex>
       <Footer />
-      <PopupConsultation isVisible={isVisible} />
+      <PopupConsultation isVisible={isVisible} setIsVisible={setIsVisible} />
     </div>
   )
 }

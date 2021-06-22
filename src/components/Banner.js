@@ -12,7 +12,7 @@ import HoverIntent from './../utils/hover-intent'
 export default function Banner(props) {
   const rootElem = useRef(null)
 
-  const [isVisible, setIsVisible] = useConsultationPopupContext()
+  const { setIsVisible } = useConsultationPopupContext()
   const showPopupConsultation = (evt) => {
     setIsVisible(false)
     evt.stopPropagation()

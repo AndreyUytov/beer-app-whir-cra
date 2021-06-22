@@ -8,7 +8,12 @@ function useConsultationPopupContext() {
     throw new Error(`useCount must be used within a ConsultationPopupProvider`)
   }
 
-  return context
+  const [isVisible, setIsVisible] = context
+
+  return {
+    isVisible,
+    setIsVisible,
+  }
 }
 
 function ConsultationPopupProvider(props) {
