@@ -1,0 +1,75 @@
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.form__label {
+  display: flex;
+  align-items: flex-start;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  --border-color: rgba(51, 51, 51, 0.3);
+
+  &:hover {
+    --svg-fill: var(--akcent);
+    color: var(--akcent);
+    --border-color: var(--akcent);
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+}
+
+.form__checkbox-marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  border: 2px solid var(--border-color);
+
+  & svg {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+
+    display: none;
+  }
+
+  &--radio {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+  }
+}
+
+.form__text {
+  margin-left: 9px;
+
+  display: flex;
+}
+
+.form__input {
+  &:checked + .form__checkbox-marker svg {
+    display: block;
+  }
+}

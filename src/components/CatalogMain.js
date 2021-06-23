@@ -4,8 +4,27 @@ import present from './../img/pic/present.png'
 import akcentCard from './../img/pic/akcent-card.png'
 
 import BreadCrumbs from './BreadCrumbs'
+import CheckboxLabel from './CheckboxLabel'
+import { useState } from 'react'
 
 export default function CatalogMain(props) {
+  const [query, setQuery] = useState({})
+
+  const handleChangeLabel = (evt) => {
+    let name = evt.target.name
+    let value = evt.target.value
+    let checked = evt.target.checked
+    let typeInput = evt.target.type
+
+    if (checked && typeInput === 'checkbox') {
+      setQuery((query) => {
+        if (!query[name]) {
+          query[name] = new Set().add(value)
+        }
+        return { ...query, [name]: query[name].add(value) }
+      })
+    }
+  }
   return (
     <>
       <main className="catalog-main">
@@ -14,13 +33,15 @@ export default function CatalogMain(props) {
         </div>
 
         <div className="catalog-left">
-          {/* <section className="catalog__filter">
+          <section className="catalog__filter">
             <h3 className="filter__title">Фильтр</h3>
 
             <form className="filter__form">
               <fieldset className="form__fieldset">
                 <div className="legend-price__wrapper">
-                  <legend className="form__legend form__legend--price">Цена</legend>
+                  <legend className="form__legend form__legend--price">
+                    Цена
+                  </legend>
                   <label className="form__label">
                     <input type="checkbox" className="form__input" />
                     <span className="form__checkbox-marker">
@@ -59,15 +80,12 @@ export default function CatalogMain(props) {
 
               <fieldset className="form__fieldset">
                 <legend className="form__legend">Тип кожи</legend>
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">Текст</span>
-                </label>
+                <CheckboxLabel
+                  name="proba"
+                  handleChange={handleChangeLabel}
+                  valueCheckbox="Text"
+                  checked={query.proba?.has('Text') ? true : false}
+                />
 
                 <label className="form__label">
                   <input type="checkbox" className="form__input" />
@@ -163,7 +181,7 @@ export default function CatalogMain(props) {
                 </label>
               </fieldset>
             </form>
-          </section> */}
+          </section>
         </div>
 
         <section className="catalog-right">
