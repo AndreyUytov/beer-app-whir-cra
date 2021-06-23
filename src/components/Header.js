@@ -13,7 +13,7 @@ import PopupMenu from './PopupMenu'
 import './header.scss'
 import { useState } from 'react'
 
-export default function Header() {
+export default function Header({ classes }) {
   const [openSearch, setOpenSearch] = useState(false)
   const [isVisibleMenu, setIsVisibleMenu] = useState(true)
   const { setIsVisible } = useConsultationPopupContext()
@@ -21,9 +21,16 @@ export default function Header() {
     setIsVisible(false)
     evt.stopPropagation()
   }
+
+  let styles = 'page-header'
+
+  if (classes) {
+    styles += ` ${classes}`
+  }
+
   return (
     <>
-      <header className="page-header">
+      <header className={styles}>
         <section className="page-header__fix-section">
           <div className="fix-section">
             <a href="index.html" className="page-header__logo">

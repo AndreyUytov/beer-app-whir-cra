@@ -16,8 +16,8 @@ export default function LandingPage() {
   const { isVisible, setIsVisible } = useConsultationPopupContext()
 
   return (
-    <div className="index-page">
-      <Header />
+    <>
+      <Header classes="page-header--index" />
       <MainIndex>
         <Banner />
         <Categories />
@@ -30,6 +30,6 @@ export default function LandingPage() {
       </MainIndex>
       <Footer />
       <PopupConsultation isVisible={isVisible} setIsVisible={setIsVisible} />
-    </div>
+    </>
   )
 }

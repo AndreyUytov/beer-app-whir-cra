@@ -1,13 +1,3 @@
-.index-page .page-header {
-  padding-bottom: 100px;
-
-  background-color: #fdfaec;
-}
-
-.quiz-page .page-header {
-  padding-bottom: 80px;
-}
-
 .page-header {
   width: 100%;
 
@@ -17,6 +7,16 @@
   grid-column-gap: 20px;
 
   background-color: transparent;
+
+  &--index {
+    padding-bottom: 100px;
+
+    background-color: #fdfaec;
+  }
+
+  &--quiz {
+    padding-bottom: 80px;
+  }
 }
 
 .page-header__fix-section {
