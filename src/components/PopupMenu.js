@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import './popup-menu.scss'
 
 export default function PopupMenu({ isVisible, setIsVisible }) {
@@ -10,103 +12,103 @@ export default function PopupMenu({ isVisible, setIsVisible }) {
       <div className="popup-menu__inner">
         <ul className="popup-menu__list list">
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
 
           <li className="popup-menu__item">
-            <a href="catalog.html" className="popup-menu__link">
+            <Link to="/catalog" className="popup-menu__link">
               <div className="popup-menu__link-img"></div>
 
               <p className="popup-menu__link-text">
                 Очищающие средства, тонизация
               </p>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

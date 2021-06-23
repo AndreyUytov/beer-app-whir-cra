@@ -1,0 +1,266 @@
+.catalog-main {
+  width: 100%;
+  margin-bottom: 150px;
+
+  display: grid;
+  grid-template-columns: [left]4fr [catalog]8fr;
+  grid-template-rows: auto auto 1fr;
+  grid-column-gap: 40px;
+}
+
+.catalog-main__breadcrumbs {
+  grid-column: left;
+  padding: 40px 0px;
+
+  display: grid;
+  grid-template-columns: 1fr [content]3fr;
+  grid-gap: 20px;
+}
+
+.catalog-left {
+  position: relative;
+  grid-column: left;
+  grid-row: 2 / 3;
+
+  padding-bottom: 90px;
+
+  display: grid;
+  grid-template-columns: 1fr [content]3fr;
+  grid-gap: 20px;
+
+  border-bottom-right-radius: 85px;
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    top: -1000px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+    background: #fff6f3;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    border-bottom-right-radius: 85px;
+    z-index: -1;
+  }
+}
+
+.catalog__filter {
+  grid-column: content;
+
+  padding-right: 40px;
+}
+
+.catalog-right {
+  grid-column: catalog;
+  grid-row: 2 / 4;
+
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  place-items: start;
+}
+
+.form__fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border: none;
+
+  &:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+}
+
+.legend-price__wrapper {
+  width: 100%;
+  margin-bottom: 19px;
+
+  display: flex;
+  align-items: center;
+}
+
+.form__legend {
+  margin-right: auto;
+  margin-bottom: 12px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+
+  &--price {
+    margin-bottom: 0px;
+  }
+}
+
+.form__label {
+  display: flex;
+  align-items: flex-start;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  --border-color: rgba(51, 51, 51, 0.3);
+
+  &:hover {
+    --svg-fill: var(--akcent);
+    color: var(--akcent);
+    --border-color: var(--akcent);
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+}
+
+.form__checkbox-marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  border: 2px solid var(--border-color);
+
+  & svg {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+
+    display: none;
+  }
+
+  &--radio {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+  }
+}
+
+.form__text {
+  margin-left: 9px;
+
+  display: flex;
+}
+
+.form__input {
+  display: none;
+
+  &:checked + .form__checkbox-marker svg {
+    display: block;
+  }
+}
+
+.catalog-right__wrapper {
+  grid-column: 1;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.catalog__tag-sort-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalog__title {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 44px;
+
+  text-transform: uppercase;
+}
+
+.catalog__tags-list {
+  max-width: fit-content;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.tags-list__item {
+  &:not(:last-of-type) {
+    margin-right: 8px;
+  }
+}
+
+.tags-list__item-btn {
+  width: 100%;
+  height: 100%;
+
+  padding: 4px 8px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 19px;
+
+  color: #333;
+
+  background-color: #f0edeb;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: #f8dbcd;
+    --svg-fill: #ee7d92;
+  }
+
+  &:active {
+    background-color: #f8dbcd;
+    --svg-fill: #ee7d92;
+    color: var(--akcent);
+    border: 1px solid #ee7d92;
+  }
+}
+
+.catalog__sort {
+  width: 205px;
+}
+
+.catalog__card-list {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-rows: auto;
+  grid-auto-flow: row dense;
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+}
+
+.card-list__item {
+  & .card__info {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  & .card__price {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  & .card__discount {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  & .card__bottom {
+    padding: 0px 16px 16px 16px;
+  }
+}

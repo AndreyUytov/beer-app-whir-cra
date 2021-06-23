@@ -5,6 +5,8 @@ import { ReactComponent as FavoriteSvg } from './../img/svg/favorite.svg'
 import { ReactComponent as UserSvg } from './../img/svg/user.svg'
 import { ReactComponent as BasketSvg } from './../img/svg/basket.svg'
 import Button from './Button'
+import { Link } from 'react-router-dom'
+
 import OutlineButton from './OutlineButton'
 import SearchBLock from './SearchBlock'
 import { useConsultationPopupContext } from './consultation-context'
@@ -33,9 +35,9 @@ export default function Header({ classes }) {
       <header className={styles}>
         <section className="page-header__fix-section">
           <div className="fix-section">
-            <a href="index.html" className="page-header__logo">
+            <Link to="/beer-app-whir-cra" className="page-header__logo">
               <LogoSvg width="143" height="29" />
-            </a>
+            </Link>
 
             {openSearch === true ? (
               <SearchBLock onCloseButtonClick={() => setOpenSearch(false)} />
