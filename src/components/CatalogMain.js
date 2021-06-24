@@ -4,27 +4,48 @@ import present from './../img/pic/present.png'
 import akcentCard from './../img/pic/akcent-card.png'
 
 import BreadCrumbs from './BreadCrumbs'
-import CheckboxLabel from './CheckboxLabel'
+import Fieldset from './Fieldset'
+import Label from './Label'
 import { useState } from 'react'
 
 export default function CatalogMain(props) {
   const [query, setQuery] = useState({})
 
   const handleChangeLabel = (evt) => {
+    if (evt.target.tagName !== 'INPUT') return
     let name = evt.target.name
     let value = evt.target.value
     let checked = evt.target.checked
     let typeInput = evt.target.type
 
-    if (checked && typeInput === 'checkbox') {
+    if (typeInput === 'checkbox') {
+      if (checked) {
+        setQuery((query) => {
+          if (!query[name]) {
+            return { ...query, [name]: new Set().add(value) }
+          }
+          return { ...query, [name]: query[name].add(value) }
+        })
+      } else {
+        setQuery((query) => {
+          const set = query[name]
+          set.delete(value)
+          return { ...query, [name]: set }
+        })
+      }
+    } else {
       setQuery((query) => {
         if (!query[name]) {
-          query[name] = new Set().add(value)
+          return { ...query, [name]: new Set().add(value) }
+        } else {
+          const set = query[name]
+          set.clear()
+          return { ...query, [name]: set.add(value) }
         }
-        return { ...query, [name]: query[name].add(value) }
       })
     }
   }
+
   return (
     <>
       <main className="catalog-main">
@@ -42,15 +63,6 @@ export default function CatalogMain(props) {
                   <legend className="form__legend form__legend--price">
                     Цена
                   </legend>
-                  <label className="form__label">
-                    <input type="checkbox" className="form__input" />
-                    <span className="form__checkbox-marker">
-                      <svg width="18" height="18">
-                        <use href="#checkbox" />
-                      </svg>
-                    </span>
-                    <span className="form__text">Скидки</span>
-                  </label>
                 </div>
 
                 <div className="range-inputs-wrapper">
@@ -78,108 +90,22 @@ export default function CatalogMain(props) {
                 </div>
               </fieldset>
 
-              <fieldset className="form__fieldset">
-                <legend className="form__legend">Тип кожи</legend>
-                <CheckboxLabel
-                  name="proba"
-                  handleChange={handleChangeLabel}
-                  valueCheckbox="Text"
-                  checked={query.proba?.has('Text') ? true : false}
-                />
-
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">Жирная</span>
-                </label>
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">Сухая</span>
-                </label>
-
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">Нормальная</span>
-                </label>
-              </fieldset>
-
-              <fieldset className="form__fieldset">
-                <legend className="form__legend">Возраст</legend>
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">20-25</span>
-                </label>
-
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">26-30</span>
-                </label>
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">31-35</span>
-                </label>
-
-                <label className="form__label">
-                  <input type="checkbox" className="form__input" />
-                  <span className="form__checkbox-marker">
-                    <svg width="18" height="18">
-                      <use href="#checkbox" />
-                    </svg>
-                  </span>
-                  <span className="form__text">36-40</span>
-                </label>
-              </fieldset>
-
-              <fieldset className="form__fieldset">
-                <legend className="form__legend">Тип кожи</legend>
-                <label className="form__label">
-                  <input type="radio" name="care" className="form__input" />
-                  <span className="form__checkbox-marker form__checkbox-marker--radio">
-                    <svg width="20" height="20">
-                      <use href="#radio" />
-                    </svg>
-                  </span>
-                  <span className="form__text">Текст</span>
-                </label>
-                <label className="form__label">
-                  <input type="radio" name="care" className="form__input" />
-                  <span className="form__checkbox-marker form__checkbox-marker--radio">
-                    <svg width="20" height="20">
-                      <use href="#radio" />
-                    </svg>
-                  </span>
-                  <span className="form__text">Текст</span>
-                </label>
-              </fieldset>
+              <Fieldset
+                checkedInputsSet={query.brand}
+                handleChange={handleChangeLabel}
+                name="brand"
+                fieldsetsList={['1st', '2nd', '3ple']}
+                typeInput="checkbox"
+                legend="brand"
+              />
+              <Fieldset
+                checkedInputsSet={query.plus}
+                handleChange={handleChangeLabel}
+                name="plus"
+                fieldsetsList={['1st', '2nd', '3ple']}
+                typeInput="radio"
+                legend="plus"
+              />
             </form>
           </section>
         </div>

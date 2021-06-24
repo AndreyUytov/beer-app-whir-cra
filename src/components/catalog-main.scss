@@ -61,38 +61,12 @@
   place-items: start;
 }
 
-.form__fieldset {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  border: none;
-
-  &:not(:last-of-type) {
-    margin-bottom: 24px;
-  }
-}
-
 .legend-price__wrapper {
   width: 100%;
   margin-bottom: 19px;
 
   display: flex;
   align-items: center;
-}
-
-.form__legend {
-  margin-right: auto;
-  margin-bottom: 12px;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
-
-  &--price {
-    margin-bottom: 0px;
-  }
 }
 
 .catalog-right__wrapper {
