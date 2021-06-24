@@ -1,17 +1,17 @@
+import { useState } from 'react'
+
 import './catalog-main.scss'
 import card from './../img/pic/card.png'
 import present from './../img/pic/present.png'
 import akcentCard from './../img/pic/akcent-card.png'
 
 import BreadCrumbs from './BreadCrumbs'
-import Fieldset from './Fieldset'
-import Label from './Label'
-import { useState } from 'react'
+import FilterForm from './FIlterForm'
 
 export default function CatalogMain(props) {
   const [query, setQuery] = useState({})
 
-  const handleChangeLabel = (evt) => {
+  const handleChangeQuery = (evt) => {
     if (evt.target.tagName !== 'INPUT') return
     let name = evt.target.name
     let value = evt.target.value
@@ -56,57 +56,7 @@ export default function CatalogMain(props) {
         <div className="catalog-left">
           <section className="catalog__filter">
             <h3 className="filter__title">Фильтр</h3>
-
-            <form className="filter__form">
-              <fieldset className="form__fieldset">
-                <div className="legend-price__wrapper">
-                  <legend className="form__legend form__legend--price">
-                    Цена
-                  </legend>
-                </div>
-
-                <div className="range-inputs-wrapper">
-                  <div className="range__wrapper">
-                    <span className="range__toggle range__toggle--left"></span>
-                    <span className="range__bar"></span>
-                    <span className="range__toggle range__toggle--right"></span>
-                  </div>
-                  <div className="price-wrapper">
-                    <label className="price-label">
-                      <input
-                        type="text"
-                        className="price-input price-input--min"
-                        placeholder="1000"
-                      />
-                    </label>
-                    <label className="price-label">
-                      <input
-                        type="text"
-                        className="price-input price-input--max"
-                        placeholder="5000"
-                      />
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-
-              <Fieldset
-                checkedInputsSet={query.brand}
-                handleChange={handleChangeLabel}
-                name="brand"
-                fieldsetsList={['1st', '2nd', '3ple']}
-                typeInput="checkbox"
-                legend="brand"
-              />
-              <Fieldset
-                checkedInputsSet={query.plus}
-                handleChange={handleChangeLabel}
-                name="plus"
-                fieldsetsList={['1st', '2nd', '3ple']}
-                typeInput="radio"
-                legend="plus"
-              />
-            </form>
+            <FilterForm handleChangeQuery={handleChangeQuery} query={query} />
           </section>
         </div>
 
