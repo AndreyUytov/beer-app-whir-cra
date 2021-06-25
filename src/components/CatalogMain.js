@@ -33,7 +33,7 @@ export default function CatalogMain(props) {
           return { ...query, [name]: set }
         })
       }
-    } else {
+    } else if (typeInput === 'radio') {
       setQuery((query) => {
         if (!query[name]) {
           return { ...query, [name]: new Set().add(value) }
@@ -42,6 +42,10 @@ export default function CatalogMain(props) {
           set.clear()
           return { ...query, [name]: set.add(value) }
         }
+      })
+    } else if (typeInput === 'text') {
+      setQuery((query) => {
+        return { ...query, [name]: value }
       })
     }
   }
