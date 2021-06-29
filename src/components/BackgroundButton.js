@@ -7,7 +7,11 @@ export default function BackgroundButton(props) {
   }
   return (
     <>
-      <Button classes={classes} onClick={props.onClick}>
+      <Button
+        typeButton={props.typeButton || 'button'}
+        classes={classes}
+        onClick={props.onClick}
+      >
         {props.children}
       </Button>
     </>

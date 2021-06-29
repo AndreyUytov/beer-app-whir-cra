@@ -7,7 +7,11 @@ export default function OutlineButton(props) {
   }
   return (
     <>
-      <Button classes={classes} onClick={props.onClick}>
+      <Button
+        classes={classes}
+        onClick={props.onClick}
+        typeButton={props.typeButton || 'button'}
+      >
         {props.children}
       </Button>
     </>

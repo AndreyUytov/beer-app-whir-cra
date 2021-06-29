@@ -24,8 +24,11 @@ export default function FilterForm(props) {
       })
     } else {
       setQuery((query) => {
-        const set = query[name]
+        let set = query[name]
         set.delete(value)
+        if (set.size === 0) {
+          set = null
+        }
         return { ...query, [name]: set }
       })
     }
@@ -43,6 +46,31 @@ export default function FilterForm(props) {
   const handleChangeRangeQuery = (name, value) => {
     setQuery((query) => {
       return { ...query, [name]: value }
+    })
+  }
+
+  const isObject = (obj) => {
+    return typeof obj === 'object' && obj !== null
+  }
+
+  const handleSubmitButton = (evt) => {
+    evt.preventDefault()
+    let queryParametr = '?'
+    Object.entries(query).forEach((item) => {
+      let value = ''
+      if (isObject(item[1])) {
+        value = Array.from(item[1].values()).join(',')
+      } else {
+        value = item[1]
+      }
+      queryParametr += `${item[0]}=${value}&`
+    })
+    console.log(queryParametr)
+  }
+
+  const handleResetButton = (evt) => {
+    setQuery(() => {
+      return {}
     })
   }
 
@@ -73,11 +101,17 @@ export default function FilterForm(props) {
           legend="plus"
         />
 
-        <BackgroundButton classes="form__submit-btn">
+        <BackgroundButton
+          typeButton="submit"
+          onClick={handleSubmitButton}
+          classes="form__submit-btn"
+        >
           Применить фильтры
         </BackgroundButton>
 
-        <OutLineButton>Сбросить фильтры</OutLineButton>
+        <OutLineButton onClick={handleResetButton} typeButton="reset">
+          Сбросить фильтры
+        </OutLineButton>
       </form>
     </>
   )

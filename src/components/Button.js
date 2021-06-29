@@ -6,7 +6,13 @@ export default function Button(props) {
 
   return (
     <>
-      <button className={classes} onClick={(evt) => props.onClick(evt)}>
+      <button
+        type={props.typeButton}
+        className={classes}
+        onClick={(evt) => {
+          return props.onClick ? props.onClick(evt) : null
+        }}
+      >
         {props.children}
       </button>
     </>
