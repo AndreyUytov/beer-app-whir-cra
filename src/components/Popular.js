@@ -19,7 +19,7 @@ export default function Popular(props) {
   const [beers, setBeers] = useState([])
 
   useEffect(() => {
-    const random = Math.round(Math.random() * 10)
+    const random = Math.round(Math.random() * 10) + 1
     fetch(`https://api.punkapi.com/v2/beers?page=${random}&per_page=8`)
       .then((res) => res.json())
       .then(

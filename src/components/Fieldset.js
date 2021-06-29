@@ -3,12 +3,20 @@ import Label from './Label'
 
 export default function Fieldset({
   fieldsetsList,
-  checkedInputsSet,
+  checkedInputs,
   typeInput,
   name,
   legend,
   handleChange,
 }) {
+  const isChecked = (item) => {
+    if (typeInput === 'radio') {
+      return checkedInputs === item ? true : false
+    } else if (typeInput === 'checkbox') {
+      return checkedInputs?.has(item) ? true : false
+    }
+  }
+
   const renderLabels = (fielsdsetList) => {
     return fielsdsetList.map((item, i) => {
       return (
@@ -17,7 +25,7 @@ export default function Fieldset({
           typeInput={typeInput}
           name={name}
           valueBox={item}
-          checked={checkedInputsSet?.has(item) ? true : false}
+          checked={isChecked(item)}
           handleChange={handleChange}
         />
       )

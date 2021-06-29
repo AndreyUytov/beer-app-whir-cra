@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import './catalog-main.scss'
 import card from './../img/pic/card.png'
 import present from './../img/pic/present.png'
@@ -9,47 +7,6 @@ import BreadCrumbs from './BreadCrumbs'
 import FilterForm from './FIlterForm'
 
 export default function CatalogMain(props) {
-  const [query, setQuery] = useState({})
-
-  const handleChangeQuery = (evt) => {
-    if (evt.target.tagName !== 'INPUT') return
-    let name = evt.target.name
-    let value = evt.target.value
-    let checked = evt.target.checked
-    let typeInput = evt.target.type
-
-    if (typeInput === 'checkbox') {
-      if (checked) {
-        setQuery((query) => {
-          if (!query[name]) {
-            return { ...query, [name]: new Set().add(value) }
-          }
-          return { ...query, [name]: query[name].add(value) }
-        })
-      } else {
-        setQuery((query) => {
-          const set = query[name]
-          set.delete(value)
-          return { ...query, [name]: set }
-        })
-      }
-    } else if (typeInput === 'radio') {
-      setQuery((query) => {
-        if (!query[name]) {
-          return { ...query, [name]: new Set().add(value) }
-        } else {
-          const set = query[name]
-          set.clear()
-          return { ...query, [name]: set.add(value) }
-        }
-      })
-    } else if (typeInput === 'text') {
-      setQuery((query) => {
-        return { ...query, [name]: value }
-      })
-    }
-  }
-
   return (
     <>
       <main className="catalog-main">
@@ -60,7 +17,7 @@ export default function CatalogMain(props) {
         <div className="catalog-left">
           <section className="catalog__filter">
             <h3 className="filter__title">Фильтр</h3>
-            <FilterForm handleChangeQuery={handleChangeQuery} query={query} />
+            <FilterForm />
           </section>
         </div>
 
