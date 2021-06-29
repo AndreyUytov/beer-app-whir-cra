@@ -6,6 +6,7 @@ import littleImg from './../img/pic/litle-img.png'
 import { useConsultationPopupContext } from './consultation-context'
 
 import './Banner.scss'
+import BackgroundButton from './BackgroundButton'
 
 import HoverIntent from './../utils/hover-intent'
 
@@ -51,12 +52,9 @@ export default function Banner(props) {
               Преобретите медицинскую косметику для ухода за собой, не пользуясь
               услугами косметолога.
             </p>
-            <button
-              onClick={showPopupConsultation}
-              className="banner__btn button background-btn popup-consultation-btn"
-            >
+            <BackgroundButton onClick={showPopupConsultation}>
               Подобрать косметику под себя
-            </button>
+            </BackgroundButton>
           </div>
 
           <div className="banner__right-section">

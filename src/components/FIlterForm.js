@@ -1,7 +1,11 @@
 import { useState } from 'react'
 
+import './filter-form.scss'
+
 import Fieldset from './Fieldset'
 import Range from './Range'
+import OutLineButton from './OutlineButton'
+import BackgroundButton from './BackgroundButton'
 
 export default function FilterForm(props) {
   const [query, setQuery] = useState({})
@@ -68,6 +72,12 @@ export default function FilterForm(props) {
           typeInput="radio"
           legend="plus"
         />
+
+        <BackgroundButton classes="form__submit-btn">
+          Применить фильтры
+        </BackgroundButton>
+
+        <OutLineButton>Сбросить фильтры</OutLineButton>
       </form>
     </>
   )
