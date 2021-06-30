@@ -11,7 +11,7 @@ export default function Range({
   const maxInput = useRef(null)
   const rangeWrapper = useRef(null)
 
-  const MAX_VALUE = 300000
+  const MAX_VALUE = 150
 
   const onRangeWrapperListener = (evt) => {
     let toggle = evt.target.closest('.range__toggle')
@@ -59,6 +59,7 @@ export default function Range({
     toggle.addEventListener('pointermove', moveAt)
 
     const mouseUp = (evt) => {
+      console.log(newValue)
       handleChangeQuery(nameInput, newValue)
       toggle.removeEventListener('pointermove', moveAt)
       toggle.removeEventListener('pointerup', mouseUp)
@@ -108,8 +109,10 @@ export default function Range({
               onChange={handleChangeInput}
               type="text"
               className="price-input price-input--min"
-              placeholder="1000"
-              value={query[nameMinInput] ? query[nameMinInput] : ''}
+              placeholder="10"
+              value={
+                query[nameMinInput] !== undefined ? query[nameMinInput] : ''
+              }
             />
           </label>
           <label className="price-label">
@@ -119,8 +122,10 @@ export default function Range({
               onChange={handleChangeInput}
               type="text"
               className="price-input price-input--max"
-              placeholder="5000"
-              value={query[nameMaxInput] ? query[nameMaxInput] : ''}
+              placeholder="50"
+              value={
+                query[nameMaxInput] !== undefined ? query[nameMaxInput] : ''
+              }
             />
           </label>
         </div>
