@@ -5,6 +5,8 @@ import akcentCard from './../img/pic/akcent-card.png'
 
 import BreadCrumbs from './BreadCrumbs'
 import FilterForm from './FIlterForm'
+import Select from './Select'
+import Tags from './Tags'
 
 export default function CatalogMain(props) {
   return (
@@ -23,35 +25,24 @@ export default function CatalogMain(props) {
 
         <section className="catalog-right">
           <div className="catalog-right__wrapper">
-            <h2 className="catalog__title">Уход за чем то</h2>
+            <h2 className="catalog__title">Каталог</h2>
 
             <div className="catalog__tag-sort-wrapper">
-              <ul className="catalog__tags-list tags-list list">
-                <li className="tags-list__item">
-                  <button className="tags-list__item-btn button">
-                    Tag name
-                    <svg width="17" height="17">
-                      <use href="#close" />
-                    </svg>
-                  </button>
-                </li>
-                <li className="tags-list__item">
-                  <button className="tags-list__item-btn button">
-                    <svg width="18" height="18">
-                      <use href="#tag-plus" />
-                    </svg>
-                  </button>
-                </li>
-              </ul>
+              <Tags
+                values={[
+                  'first Tag',
+                  '2st Tag',
+                  '3sst Tag',
+                  '4sst Tag',
+                  '5st Tag',
+                  '6s Tag',
+                  '7 Tag',
+                  '8 tag name',
+                  '9 tag name again',
+                ]}
+              />
 
-              <custom-select className="catalog__sort" title="Сортировать по">
-                <span data-value="1" slot="option">
-                  По цене
-                </span>
-                <span data-value="2" slot="option">
-                  По рейтингу
-                </span>
-              </custom-select>
+              <Select />
             </div>
 
             <ul className="catalog__card-list list">

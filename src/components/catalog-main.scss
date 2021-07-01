@@ -94,47 +94,6 @@
   text-transform: uppercase;
 }
 
-.catalog__tags-list {
-  max-width: fit-content;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-.tags-list__item {
-  &:not(:last-of-type) {
-    margin-right: 8px;
-  }
-}
-
-.tags-list__item-btn {
-  width: 100%;
-  height: 100%;
-
-  padding: 4px 8px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 19px;
-
-  color: #333;
-
-  background-color: #f0edeb;
-  border: 1px solid transparent;
-
-  &:hover {
-    background-color: #f8dbcd;
-    --svg-fill: #ee7d92;
-  }
-
-  &:active {
-    background-color: #f8dbcd;
-    --svg-fill: #ee7d92;
-    color: var(--akcent);
-    border: 1px solid #ee7d92;
-  }
-}
-
 .catalog__sort {
   width: 205px;
 }
