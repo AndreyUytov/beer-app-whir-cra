@@ -24,6 +24,12 @@ function TagPopup({ tags, handleClickSubmit, hidePopup }) {
   const handleClickPopupTag = (evt) => {
     const tag = evt.target.closest('button')
     tag.classList.toggle('active')
+    const tags = ulRef.current.querySelectorAll('.tags-list__item-btn.active')
+    console.log(tags.length);
+    if(tags.length > 4) {
+      tag.classList.toggle('active')
+      alert("the number of tags cannot be more than 4!")
+    }
   }
 
   const handleClosePopup = () => {
@@ -39,7 +45,6 @@ function TagPopup({ tags, handleClickSubmit, hidePopup }) {
         active: el.classList.contains('active') ? true : false,
       })
     })
-
     handleClickSubmit(result)
   }
 

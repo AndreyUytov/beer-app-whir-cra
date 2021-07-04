@@ -1,4 +1,5 @@
 import './../utils/custom-select'
+import './select.scss'
 
 export default function Select() {
   return (

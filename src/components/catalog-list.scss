@@ -1,0 +1,31 @@
+.catalog__card-list {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-rows: auto;
+  grid-auto-flow: row dense;
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+}
+
+.card-list__item {
+  & .card__info {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  & .card__price {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  & .card__discount {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  & .card__bottom {
+    padding: 0px 16px 16px 16px;
+  }
+}
