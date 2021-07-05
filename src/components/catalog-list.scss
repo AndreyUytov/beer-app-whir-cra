@@ -2,7 +2,7 @@
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-template-rows: auto;
   grid-auto-flow: row dense;
   grid-auto-rows: auto;

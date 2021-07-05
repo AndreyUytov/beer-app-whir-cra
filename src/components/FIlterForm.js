@@ -55,7 +55,7 @@ export default function FilterForm(props) {
 
   const handleSubmitButton = (evt) => {
     evt.preventDefault()
-    let queryParametr = '?'
+    let queryParametr = ''
     Object.entries(query).forEach((item) => {
       let value = ''
       if (isObject(item[1])) {
@@ -66,12 +66,14 @@ export default function FilterForm(props) {
       queryParametr += `${item[0]}=${value}&`
     })
     console.log(queryParametr)
+    props.setupFilterFormParametrs(queryParametr)
   }
 
   const handleResetButton = (evt) => {
     setQuery(() => {
       return {}
     })
+    props.setupFilterFormParametrs('')
   }
 
   return (

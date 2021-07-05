@@ -4,7 +4,7 @@ import { ReactComponent as Close } from './../img/svg/close.svg'
 import { ReactComponent as TagPlus } from './../img/svg/tag-plus.svg'
 import OutlineButton from './OutlineButton'
 import BackgroundButton from './BackgroundButton'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function renderPopupTag(tags) {
   return tags.map((elem) => {
@@ -25,7 +25,6 @@ function TagPopup({ tags, handleClickSubmit, hidePopup }) {
     const tag = evt.target.closest('button')
     tag.classList.toggle('active')
     const tags = ulRef.current.querySelectorAll('.tags-list__item-btn.active')
-    console.log(tags.length);
     if(tags.length > 4) {
       tag.classList.toggle('active')
       alert("the number of tags cannot be more than 4!")
@@ -89,7 +88,7 @@ function renderTag(tags) {
       return (
         <li className="tags-list__item" key={i}>
           <button className="tags-list__item-btn button">
-            {elem.value}
+            {elem.value.replace('_', " ")}
             <Close width="17" height="17" />
           </button>
         </li>
@@ -98,7 +97,7 @@ function renderTag(tags) {
   })
 }
 
-export default function Tags({ values }) {
+export default function Tags({ values, setupTagParametrs }) {
   const preparedTags = values.map((elem) => {
     return {
       value: elem,
@@ -113,7 +112,7 @@ export default function Tags({ values }) {
     const tag = evt.target.closest('button')
     if (!tag) return
 
-    const tagValue = tag.textContent
+    const tagValue = tag.textContent.replace(' ', "_")
     const newTags = tags.map((elem) => {
       if (elem.value === tagValue) {
         elem.active = !elem.active
@@ -132,6 +131,10 @@ export default function Tags({ values }) {
   const hidePopup = () => {
     setIsVisiblePopup(false)
   }
+
+  useEffect(() => {
+    setupTagParametrs(tags)
+  }, [tags, setupTagParametrs])
 
   return (
     <>

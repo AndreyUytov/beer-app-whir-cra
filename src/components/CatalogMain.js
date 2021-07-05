@@ -13,23 +13,27 @@ export default function CatalogMain(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [beers, setBeers] = useState([]);
 
-  // const [queryFormParametrs, setQueryFormParametrs] = useState('')
-  // const [tagQueryParametrs, setTagQueryParametrs] = useState('')
+  const [queryFormParametrs, setQueryFormParametrs] = useState('')
+  const [tagQueryParametrs, setTagQueryParametrs] = useState('')
 
   const sortRef = useRef(null)
 
-  // const setupFilterFormParametrs = (param) => {
-  //   setQueryFormParametrs(param)
-  // }
+  const setupFilterFormParametrs = (param) => {
+    setQueryFormParametrs(param)
+  }
 
-  // const setupTagParametrs = (param) => {
-  //   setTagQueryParametrs(param)
-  // }
-
-  
+  const setupTagParametrs = (params) => {
+    const activeParams = params.filter(el => el.active === true).map((el) => el.value)
+    if(activeParams.length) {
+      const preparedParametrs = activeParams.join('&')
+      setTagQueryParametrs(`hops=${preparedParametrs}`)
+    } else {
+      setTagQueryParametrs('')
+    }
+  }
 
   useEffect(() => {
-    fetch("https://api.punkapi.com/v2/beers?page=2&per_page=12")
+    fetch(`https://api.punkapi.com/v2/beers?page=1&per_page=12&${tagQueryParametrs}&${queryFormParametrs}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -41,7 +45,7 @@ export default function CatalogMain(props) {
           setError(error);
         }
       )
-  },[])
+  },[tagQueryParametrs, queryFormParametrs])
 
   useEffect(() => {
     const dateParsing = (mounthYearsFormat) => {
@@ -79,7 +83,7 @@ export default function CatalogMain(props) {
         <div className="catalog-left">
           <section className="catalog__filter">
             <h3 className="filter__title">Фильтр</h3>
-            <FilterForm />
+            <FilterForm setupFilterFormParametrs={setupFilterFormParametrs} />
           </section>
         </div>
 
@@ -89,19 +93,20 @@ export default function CatalogMain(props) {
 
             <div ref={sortRef} className="catalog__tag-sort-wrapper">
               <Tags
+              setupTagParametrs={setupTagParametrs}
                 values={[
                   'Ahtanum',
                   'Chinook',
                   'Fuggles',
-                  'First Gold',
+                  'First_Gold',
                   'Cascade',
                   'Amarillo',
                   'Simcoe',
                   'Motueka',
-                  'Bramling Cross',
+                  'Bramling_Cross',
                   'Centennial',
                   'Saaz',
-                  'Nelson Sauvin',
+                  'Nelson_Sauvin',
                   'Peppercorns'
                 ]}
               />
