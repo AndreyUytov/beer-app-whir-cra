@@ -11,7 +11,7 @@ export default function Range({
   const maxInput = useRef(null)
   const rangeWrapper = useRef(null)
 
-  const MAX_VALUE = 150
+  const MAX_VALUE = 54
 
   const onRangeWrapperListener = (evt) => {
     let toggle = evt.target.closest('.range__toggle')
@@ -52,14 +52,13 @@ export default function Range({
         `${newPosition}px`
       )
 
-      newValue = Math.ceil(newPosition * step) * (MAX_VALUE / 100)
+      newValue = Math.ceil(newPosition * step * (MAX_VALUE / 100))
       input.value = newValue
     }
 
     toggle.addEventListener('pointermove', moveAt)
 
     const mouseUp = (evt) => {
-      console.log(newValue)
       handleChangeQuery(nameInput, newValue)
       toggle.removeEventListener('pointermove', moveAt)
       toggle.removeEventListener('pointerup', mouseUp)

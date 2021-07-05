@@ -64,7 +64,7 @@ function TagPopup({ tags, handleClickSubmit, hidePopup }) {
         >
           <Close width="36" height="36" />
         </button>
-        <h2 className="tags-popup__title">Выберите тэги</h2>
+        <h2 className="tags-popup__title">Выберите хмель</h2>
         <ul
           ref={ulRef}
           onClick={handleClickPopupTag}

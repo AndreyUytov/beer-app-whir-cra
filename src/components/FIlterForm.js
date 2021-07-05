@@ -59,7 +59,7 @@ export default function FilterForm(props) {
     Object.entries(query).forEach((item) => {
       let value = ''
       if (isObject(item[1])) {
-        value = Array.from(item[1].values()).join(',')
+        value = Array.from(item[1].values()).join('&')
       } else {
         value = item[1]
       }
@@ -78,27 +78,27 @@ export default function FilterForm(props) {
     <>
       <form className="filter__form">
         <Range
-          nameMinInput="minInput"
-          nameMaxInput="maxInput"
+          nameMinInput="abv_gt"
+          nameMaxInput="abv_lt"
           query={query}
           handleChangeQuery={handleChangeRangeQuery}
         />
 
         <Fieldset
-          checkedInputs={query.brand}
+          checkedInputs={query.food}
           handleChange={handleChangeCheckboxQuery}
-          name="brand"
-          fieldsetsList={['1st', '2nd', '3ple']}
+          name="food"
+          fieldsetsList={['Chocolate', 'Coffee', 'Cheese', 'Crab', 'Lemon']}
           typeInput="checkbox"
-          legend="brand"
+          legend="Food pairing"
         />
         <Fieldset
-          checkedInputs={query.plus}
+          checkedInputs={query.brewed_before}
           handleChange={handleChangeRadioQuery}
-          name="plus"
-          fieldsetsList={['1st', '2nd', '3ple']}
+          name="brewed_before"
+          fieldsetsList={['12-2007', '12-2009', '12-2012', '12-2015']}
           typeInput="radio"
-          legend="plus"
+          legend="First brewed before"
         />
 
         <BackgroundButton

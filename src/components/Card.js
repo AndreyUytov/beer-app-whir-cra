@@ -1,7 +1,7 @@
 import present from './../img/pic/present.png'
 
 export default function Card(props) {
-  let {name, image_url, first_brewed} = props.item
+  let {name, image_url, first_brewed, abv} = props.item
   let classes = `card`
   if(props.classes) {
     classes += ` ${props.classes}`
@@ -16,7 +16,7 @@ export default function Card(props) {
               </p>
               <p className="card__price">
                 {first_brewed}
-                <span className="card__discount"> -30% </span>
+                <span className="card__discount">abv - {abv} </span>
               </p>
             </div>
             <div className="card__present">
