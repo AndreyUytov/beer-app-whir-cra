@@ -4,7 +4,7 @@ import { ReactComponent as Close } from './../img/svg/close.svg'
 import { ReactComponent as TagPlus } from './../img/svg/tag-plus.svg'
 import OutlineButton from './OutlineButton'
 import BackgroundButton from './BackgroundButton'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 
 function renderPopupTag(tags) {
   return tags.map((elem) => {
@@ -121,20 +121,18 @@ export default function Tags({ values, setupTagParametrs }) {
     })
 
     setTags(newTags)
+    setupTagParametrs(newTags)
   }
 
   const handleClickSubmit = (tags) => {
     setTags(tags)
+    setupTagParametrs(tags)
     hidePopup()
   }
 
   const hidePopup = () => {
     setIsVisiblePopup(false)
   }
-
-  useEffect(() => {
-    setupTagParametrs(tags)
-  }, [tags, setupTagParametrs])
 
   return (
     <>

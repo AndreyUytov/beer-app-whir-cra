@@ -42,6 +42,7 @@ export default function CatalogMain(props) {
       parametr = ''
     }
     setTagQueryParametrs(parametr)
+    setPaginationNumber(1)
   }
 
   useEffect(() => {
