@@ -9,6 +9,7 @@ export default function Button(props) {
       <button
         type={props.typeButton}
         className={classes}
+        disabled={props.disabled || false}
         onClick={(evt) => {
           return props.onClick ? props.onClick(evt) : null
         }}

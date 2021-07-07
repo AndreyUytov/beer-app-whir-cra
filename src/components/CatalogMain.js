@@ -15,25 +15,37 @@ export default function CatalogMain(props) {
 
   const [queryFormParametrs, setQueryFormParametrs] = useState('')
   const [tagQueryParametrs, setTagQueryParametrs] = useState('')
+  const [sortFilterParametr, setSortFilterParametr] = useState('')
+  const [paginationNumber, setPaginationNumber] = useState(1)
 
   const sortRef = useRef(null)
 
+  const handlerClickNextPage = () => {
+    setPaginationNumber(prev => prev + 1)
+  }
+  const handlerClickPrevPage = () => {
+    setPaginationNumber(prev => prev - 1)
+  }
+
   const setupFilterFormParametrs = (param) => {
     setQueryFormParametrs(param)
+    setPaginationNumber(1)
   }
 
   const setupTagParametrs = (params) => {
     const activeParams = params.filter(el => el.active === true).map((el) => el.value)
+    let parametr
     if(activeParams.length) {
       const preparedParametrs = activeParams.join('&')
-      setTagQueryParametrs(`hops=${preparedParametrs}`)
+      parametr = `hops=${preparedParametrs}`
     } else {
-      setTagQueryParametrs('')
+      parametr = ''
     }
+    setTagQueryParametrs(parametr)
   }
 
   useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers?page=1&per_page=12&${tagQueryParametrs}&${queryFormParametrs}`)
+    fetch(`https://api.punkapi.com/v2/beers?page=${paginationNumber}&per_page=12&${tagQueryParametrs}&${queryFormParametrs}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -45,7 +57,8 @@ export default function CatalogMain(props) {
           setError(error);
         }
       )
-  },[tagQueryParametrs, queryFormParametrs])
+      setSortFilterParametr('')
+  },[paginationNumber, tagQueryParametrs, queryFormParametrs ])
 
   useEffect(() => {
     const dateParsing = (mounthYearsFormat) => {
@@ -65,6 +78,7 @@ export default function CatalogMain(props) {
          })
       }
       setBeers(copyBeers)
+      setSortFilterParametr(evt.detail)
     }
     const sortWrapper =  sortRef.current
     sortWrapper.addEventListener('select-value', sortChangeListener)
@@ -111,10 +125,11 @@ export default function CatalogMain(props) {
                 ]}
               />
 
-              <Select />
+              <Select currentValue={sortFilterParametr} />
             </div>
 
-            <CatalogList error={error} beers={beers} isLoading={isLoading} />
+            <CatalogList error={error} beers={beers} isLoading={isLoading} handlerClickPrevPage={handlerClickPrevPage} 
+            handlerClickNextPage ={handlerClickNextPage} currentPage={paginationNumber} />
           </div>
         </section>
       </main>

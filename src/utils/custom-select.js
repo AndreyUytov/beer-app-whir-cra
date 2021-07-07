@@ -167,17 +167,7 @@ class CustomSelect extends HTMLElement {
       if (!optionSlot) return
 
       let optionSlotValue = optionSlot.dataset.value
-      let optionSlotTextContent = optionSlot.textContent
-      this.$title.textContent = optionSlotTextContent
-
-      // событие select-value для отправки наверх значения выбранного пункта
-      this.shadowRoot.dispatchEvent(
-        new CustomEvent('select-value', {
-          bubbles: true,
-          composed: true,
-          detail: optionSlotValue,
-        })
-      )
+      this.setAttribute('current-value', optionSlotValue)
     }
   }
 
@@ -191,10 +181,12 @@ class CustomSelect extends HTMLElement {
   }
 
   render() {
+    const currentValue = this.getAttribute('current-value').replace("_", " ")
+    const sortTitle = currentValue ? `By ${currentValue}` : `Sort by`
     this.shadowRoot.innerHTML = `
       <style>${css}</style>
       <div class="select__title">
-        <span class="select__title-text">${this.getAttribute('title')}</span>
+        <span class="select__title-text">${sortTitle}</span>
         <svg class="select__svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7 10L12 15L17 10H7Z" fill="var(--svg-fill, rgba(51, 51, 51, 0.3))"/>
         </svg>
@@ -203,6 +195,32 @@ class CustomSelect extends HTMLElement {
         <slot name="option"></slot>
       </div>
     `
+  }
+
+  static get observedAttributes() {
+    return ['current-value'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if(name === 'current-value' && oldValue !== newValue) {
+      // событие select-value для отправки наверх значения выбранного пункта
+      this.dispatchEvent(
+        new CustomEvent('select-value', {
+          bubbles: true,
+          composed: true,
+          detail: newValue,
+        })
+      )
+
+      setTimeout(() => {
+        if(newValue) {
+          this.$title.textContent = `By ${newValue.replace("_", " ")}`
+        } else {
+          this.$title.textContent = `Sort by`
+        }
+        
+      }, 0)
+    }
   }
 
   disconnectedCallback() {

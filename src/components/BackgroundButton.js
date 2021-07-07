@@ -11,6 +11,7 @@ export default function BackgroundButton(props) {
         typeButton={props.typeButton || 'button'}
         classes={classes}
         onClick={props.onClick}
+        disabled={props.disabled || false}
       >
         {props.children}
       </Button>
