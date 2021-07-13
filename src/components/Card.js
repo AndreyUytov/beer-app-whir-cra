@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import present from './../img/pic/present.png'
 
 export default function Card(props) {
@@ -8,7 +10,7 @@ export default function Card(props) {
   }
   return (
     <li className={classes}>
-          <a href="card.html" className="card__link">
+          <Link to={'/catalog/' + name} className="card__link">
             <img src={image_url} className="card__img" alt="card-item" />
             <div className="card__bottom">
               <p className="card__info">
@@ -28,7 +30,7 @@ export default function Card(props) {
             <div className="card__marker">
               <span className="card__marker-text">хит</span>
             </div>
-          </a>
+          </Link>
         </li>
   )
 }

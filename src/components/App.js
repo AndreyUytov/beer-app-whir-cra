@@ -9,18 +9,15 @@ import { ConsultationPopupProvider } from './consultation-context'
 export default function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/beer-app-whir-cra">
-          <ConsultationPopupProvider>
+      <Switch> 
+        <ConsultationPopupProvider>
+          <Route path="/beer-app-whir-cra">
             <LandingPage />
-          </ConsultationPopupProvider>
-        </Route>
-
-        <Route path="/catalog">
-          <ConsultationPopupProvider>
+          </Route>
+          <Route path="/catalog">
             <CatalogPage />
-          </ConsultationPopupProvider>
-        </Route>
+          </Route>
+        </ConsultationPopupProvider>
       </Switch>
     </Router>
   )

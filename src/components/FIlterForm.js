@@ -60,9 +60,9 @@ export default function FilterForm(props) {
       let value = ''
       if (isObject(item[1])) {
         value = Array.from(item[1].values()).join('&')
-      } else {
+      } else if (item[1] !== null) {
         value = item[1]
-      }
+      } else return
       queryParametr += `${item[0]}=${value}&`
     })
     console.log(queryParametr)

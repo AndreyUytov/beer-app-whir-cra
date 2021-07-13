@@ -92,7 +92,8 @@ export default function CatalogMain(props) {
     <>
       <main className="catalog-main">
         <div className="catalog-main__breadcrumbs">
-          <BreadCrumbs />
+          <BreadCrumbs links={[{label: 'Home', to: '/beer-app-whir-cra'},
+          {label: 'Catalog', to: '/catalog'}]} />
         </div>
 
         <div className="catalog-left">
