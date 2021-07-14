@@ -11,6 +11,8 @@ import { ReactComponent as SemiStar } from './../img/svg/semi-star.svg'
 import { ReactComponent as EmptyStar } from './../img/svg/empty-star.svg'
 import { ReactComponent as Plus } from './../img/svg/plus.svg'
 import { ReactComponent as Minus } from './../img/svg/minus.svg'
+import { ReactComponent as AppendFavorite } from './../img/svg/append-favorite.svg'
+
 
 export default function CardMain(props) {
 
@@ -194,9 +196,7 @@ export default function CardMain(props) {
             <div className="card-controlls__append-to">
 
               <button className="card-controlls__favorite-btn button">
-                <svg width="45" height="45">
-                  <use href="#append-favorite" />
-                </svg>
+                <AppendFavorite width="45" height="45" />
               </button>
 
               <button className="card-controlls__basket-btn button background-btn">
@@ -221,9 +221,6 @@ export default function CardMain(props) {
             <h4 className="brand__title">
               {beer[0].ingredients.yeast}
             </h4>
-            <svg width="122" height="19">
-              <use href="#drhedison" />
-            </svg>
           </div>
 
         </div>

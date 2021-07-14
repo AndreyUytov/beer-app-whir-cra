@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { ReactComponent as SearchIcon } from './../img/svg/search.svg'
 import { ReactComponent as CloseIcon } from './../img/svg/close.svg'
 import Button from './Button'
@@ -68,8 +70,8 @@ const listResultsRender = (resultItems, inputValue) => {
       {resultItems.map((item) => {
         return (
           <li className="search-block__result-item" key={item.id}>
-            <a
-              href="card.html"
+            <Link
+              to={`/catalog/${item.id}`}
               className="search-block__result-link"
               dangerouslySetInnerHTML={highLighter(item.name, inputValue)}
             />
