@@ -17,7 +17,7 @@ export default function CatalogPage() {
         <Route exact path='/catalog'>
           <CatalogMain />
         </Route>
-        <Route path='/catalog/:product'>
+        <Route path='/catalog/:productId'>
           <CardMain />
         </Route>
       </Switch>

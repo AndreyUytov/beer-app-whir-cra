@@ -5,7 +5,7 @@ const ConsultationPopupContext = React.createContext()
 function useConsultationPopupContext() {
   const context = React.useContext(ConsultationPopupContext)
   if (!context) {
-    throw new Error(`useCount must be used within a ConsultationPopupProvider`)
+    throw new Error(`useConsultationPopupContext must be used within a ConsultationPopupProvider`)
   }
 
   const [isVisible, setIsVisible] = context

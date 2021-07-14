@@ -1,0 +1,62 @@
+.card-main__similar-wrapper {
+  position: relative;
+  grid-column: content;
+
+  width: 100%;
+  padding: 0px 30px;
+
+  overflow: hidden;
+}
+
+.similar__list-wrapper {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.similar__list {
+  width: auto;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.similar__item {
+  width: 275px;
+
+  flex-shrink: 0;
+
+  &:not(:last-of-type) {
+    margin-right: 20px;
+  }
+}
+
+.similar__list-controll {
+  position: absolute;
+
+  bottom: 45%;
+  width: 46px;
+  height: 46px;
+
+  background-color: white;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.08);
+
+  --svg-fill: #333;
+
+  &:active {
+    --svg-fill: var(akcent);
+  }
+
+  &--prev {
+    left: 5px;
+    svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &--next {
+    right: 5px;
+  }
+}
